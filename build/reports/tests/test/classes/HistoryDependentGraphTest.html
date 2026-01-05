@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class HistoryDependentGraphTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class HistoryDependentGraphTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; HistoryDependentGraphTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.047s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">ifEnteredN3FromN1_thenGoToN11()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">ifEnteredN3FromN5_thenGoToN12()</td>
+<td class="success">0.043s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 5 commands
+Built algorithm 'tick' with 4 commands
+State N0: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N1 (probability: 0.5)
+  -&gt; Add existing next state: N2 (probability: 0.5)
+Context: transition from N0 to N2
+  -&gt; History-based probabilistic transition to: N2
+    Computed probabilities: [N1=0.5, N2=0.5]
+State N2: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N5 (probability: 0.7)
+  -&gt; Add existing next state: N6 (probability: 0.3)
+Context: transition from N2 to N5
+  -&gt; History-based probabilistic transition to: N5
+    Computed probabilities: [N5=0.7, N6=0.3]
+State N5: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N9 (probability: 0.2)
+  -&gt; Add existing next state: N10 (probability: 0.2)
+  -&gt; Add existing next state: N3 (probability: 0.6)
+Context: transition from N5 to N3
+  -&gt; History-based probabilistic transition to: N3
+    Computed probabilities: [N9=0.2, N10=0.2, N3=0.6]
+State N3: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N11 (probability: 0.5)
+  -&gt; Add existing next state: N12 (probability: 0.5)
+Context: transition from N3 to N12
+  -&gt; History-based probabilistic transition to: N12
+    Computed probabilities: [N11=0.0, N12=1.0]
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 4 commands
+Built algorithm 'tick' with 5 commands
+Built algorithm 'tick' with 4 commands
+State N0: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N1 (probability: 0.5)
+  -&gt; Add existing next state: N2 (probability: 0.5)
+Context: transition from N0 to N1
+  -&gt; History-based probabilistic transition to: N1
+    Computed probabilities: [N1=0.5, N2=0.5]
+State N1: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N3 (probability: 0.6)
+  -&gt; Add existing next state: N4 (probability: 0.4)
+Context: transition from N1 to N3
+  -&gt; History-based probabilistic transition to: N3
+    Computed probabilities: [N3=0.6, N4=0.4]
+State N3: executing algorithm 'tick'
+  -&gt; Clear next states
+  -&gt; Add existing next state: N11 (probability: 0.5)
+  -&gt; Add existing next state: N12 (probability: 0.5)
+Context: transition from N3 to N11
+  -&gt; History-based probabilistic transition to: N11
+    Computed probabilities: [N11=1.0, N12=0.0]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at 25 дек. 2025 г., 02:07:06</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 5 commands
+(Built algorithm 'tick' with 4 commands
+&State N0: executing algorithm 'tick'
+  -> Clear next states
+5  -> Add existing next state: N1 (probability: 0.5)
+5  -> Add existing next state: N2 (probability: 0.5)
+#Context: transition from N0 to N2
+4  -> History-based probabilistic transition to: N2
+.    Computed probabilities: [N1=0.5, N2=0.5]
+&State N2: executing algorithm 'tick'
+  -> Clear next states
+5  -> Add existing next state: N5 (probability: 0.7)
+5  -> Add existing next state: N6 (probability: 0.3)
+#Context: transition from N2 to N5
+4  -> History-based probabilistic transition to: N5
+.    Computed probabilities: [N5=0.7, N6=0.3]
+&State N5: executing algorithm 'tick'
+  -> Clear next states
+5  -> Add existing next state: N9 (probability: 0.2)
+6  -> Add existing next state: N10 (probability: 0.2)
+5  -> Add existing next state: N3 (probability: 0.6)
+#Context: transition from N5 to N3
+4  -> History-based probabilistic transition to: N3
+7    Computed probabilities: [N9=0.2, N10=0.2, N3=0.6]
+&State N3: executing algorithm 'tick'
+  -> Clear next states
+6  -> Add existing next state: N11 (probability: 0.5)
+6  -> Add existing next state: N12 (probability: 0.5)
+$Context: transition from N3 to N12
+5  -> History-based probabilistic transition to: N12
+0    Computed probabilities: [N11=0.0, N12=1.0]
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 4 commands
+(Built algorithm 'tick' with 5 commands
+(Built algorithm 'tick' with 4 commands
+&State N0: executing algorithm 'tick'
+  -> Clear next states
+5  -> Add existing next state: N1 (probability: 0.5)
+5  -> Add existing next state: N2 (probability: 0.5)
+#Context: transition from N0 to N1
+4  -> History-based probabilistic transition to: N1
+.    Computed probabilities: [N1=0.5, N2=0.5]
+&State N1: executing algorithm 'tick'
+  -> Clear next states
+5  -> Add existing next state: N3 (probability: 0.6)
+5  -> Add existing next state: N4 (probability: 0.4)
+#Context: transition from N1 to N3
+4  -> History-based probabilistic transition to: N3
+.    Computed probabilities: [N3=0.6, N4=0.4]
+&State N3: executing algorithm 'tick'
+  -> Clear next states
+6  -> Add existing next state: N11 (probability: 0.5)
+6  -> Add existing next state: N12 (probability: 0.5)
+$Context: transition from N3 to N11
+5  -> History-based probabilistic transition to: N11
+0    Computed probabilities: [N11=1.0, N12=0.0]
