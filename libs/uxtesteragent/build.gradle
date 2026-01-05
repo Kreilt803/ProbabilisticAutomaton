@@ -1,0 +1,37 @@
+plugins {
+    id 'java' // Основной плагин для Java
+    id 'application'
+}
+
+repositories {
+    mavenCentral() // Репозиторий для скачивания зависимостей
+}
+
+// Укажите версию Java, которую вы используете
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    // 1. Apache Commons Math для работы с распределениями
+    implementation 'org.apache.commons:commons-math3:3.6.1' // Используйте актуальную версию
+
+    // 2. Matplotlib4j - обертка для Matplotlib (Python)
+    implementation 'org.jfree:jfreechart:1.5.4'
+    // 3. Логирование (часто требуется библиотеками, включая matplotlib4j)
+    // Используем SLF4J API и простую реализацию slf4j-simple
+    implementation 'org.slf4j:slf4j-api:1.7.32' // Используйте актуальную совместимую версию
+    runtimeOnly 'org.slf4j:slf4j-simple:1.7.32' // Нужна только во время выполнения
+}
+
+//// Настройка для плагина 'application' (если вы его используете)
+application {
+    // Укажите ваш главный класс с методом main
+
+    // Добавляем JVM аргументы для запуска
+    applicationDefaultJvmArgs = ["-Dfile.encoding=UTF-8"]
+}
+
+// ... остальное ...
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
