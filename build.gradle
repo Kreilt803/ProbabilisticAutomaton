@@ -1,0 +1,107 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+    
+    // Локальная библиотека из gitverse
+    implementation files('libs/uxtesteragent/build/libs/uxtesteragent.jar')
+    
+    // Зависимости для uxtesteragent (JFreeChart для графиков)
+    implementation 'org.jfree:jfreechart:1.5.4'
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    runtimeOnly 'org.slf4j:slf4j-simple:1.7.32'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    main {
+        // Проект использует "плоскую" структуру исходников: src/*.java
+        // Тесты лежат внутри src/test/java, поэтому их нужно исключить из main,
+        // иначе Gradle попытается компилировать тесты как production-код.
+        java {
+            srcDirs = ['src']
+            exclude 'test/**'
+        }
+        resources { srcDirs = [] }
+    }
+    test {
+        java { srcDirs = ['src/test/java'] }
+        resources { srcDirs = [] }
+    }
+}
+
+application {
+    mainClass = 'Main'
+}
+
+// Настройка кодировки для запуска приложения
+run {
+    standardOutput = System.out
+    standardInput = System.in
+    // Устанавливаем UTF-8 для вывода
+    systemProperty 'file.encoding', 'UTF-8'
+    jvmArgs = ['-Dfile.encoding=UTF-8', '-Dconsole.encoding=UTF-8']
+}
+
+// Задача для автоматической сборки локальной библиотеки
+task buildLocalLibrary {
+    description = 'Собирает локальную библиотеку uxtesteragent'
+    doLast {
+        def libDir = file('libs/uxtesteragent')
+        if (!libDir.exists() || !file('libs/uxtesteragent/build.gradle').exists()) {
+            println "Библиотека uxtesteragent не найдена, пропускаем сборку"
+            return
+        }
+        
+        def gradlew = isWindows() ? 
+            new File(libDir, 'gradlew.bat') : 
+            new File(libDir, 'gradlew')
+        
+        if (!gradlew.exists()) {
+            println "Gradle wrapper не найден в библиотеке, пропускаем сборку"
+            return
+        }
+        
+        exec {
+            workingDir = libDir
+            if (isWindows()) {
+                commandLine 'cmd', '/c', 'gradlew.bat', 'build'
+            } else {
+                commandLine './gradlew', 'build'
+            }
+        }
+    }
+    onlyIf { file('libs/uxtesteragent/build.gradle').exists() }
+}
+
+// Автоматически собираем библиотеку перед компиляцией
+compileJava.dependsOn buildLocalLibrary
+
+// Вспомогательная функция для определения ОС
+def isWindows() {
+    return System.getProperty('os.name').toLowerCase().contains('windows')
+}
+
+
+test {
+    useJUnitPlatform()
+}

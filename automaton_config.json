@@ -1,0 +1,45 @@
+{
+  "initialState": "START_JSON",
+  "states": [
+    {
+      "name": "START_JSON",
+      "finalState": false,
+      "algorithms": {
+        "check": [
+          { "type": "clear_next_states" },
+          {
+            "type": "add_state",
+            "target": "SUCCESS_JSON",
+            "finalState": true,
+            "probability": 0.7
+          },
+          {
+            "type": "add_state",
+            "target": "FAILURE_JSON",
+            "finalState": true,
+            "probability": 0.3
+          },
+          {
+            "type": "probabilistic_transition",
+            "random": {
+              "type": "normal",
+              "mean": 0.0,
+              "sd": 1.0,
+              "mode": "cdf"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "SUCCESS_JSON",
+      "finalState": true,
+      "algorithms": { }
+    },
+    {
+      "name": "FAILURE_JSON",
+      "finalState": true,
+      "algorithms": { }
+    }
+  ]
+}
